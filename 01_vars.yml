@@ -3,10 +3,14 @@
   become: yes
 
   vars:
-      package: httpd
+      package:
+          - httpd
+          - mariadb-server
+          - php
+          - php-mysqlnd
 
   tasks:
-  - name: Install Packages
+  - name: Install Multiple Packages
     ansible.builtin.package:
       name: "{{ package }}"
       state: latest
